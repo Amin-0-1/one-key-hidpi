@@ -10,17 +10,17 @@
 
 效果：
 
-![HiDPI效果.png](https://i.loli.net/2017/10/26/59f199e85deb7.png)
+![15255304558107](http://ovefvi4g3.bkt.clouddn.com/15255304558107.jpg)
 
 ### 使用方法
 
 在终端输入以下命令回车即可
 
 ```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/athlonreg/one-key-HiDPI/master/HiDPI.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/athlonreg/one-key-hidpi/master/hidpi.sh)"
 ```
 
-![运行](https://i.loli.net/2018/04/03/5ac2963c7b26b.png)
+![15255304050717](http://ovefvi4g3.bkt.clouddn.com/15255304050717.jpg)
 
 ### 恢复
 
