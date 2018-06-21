@@ -1,15 +1,12 @@
 #!/bin/sh
-# 
-# 初始化
+
 function init()
 {
-#
 cat << EEF
 ----------------------------------------
 |*************** HIDPI ****************|
 ----------------------------------------
 EEF
-    #
     VendorID=$(ioreg -l | grep "DisplayVendorID" | awk '{print $8}')
     ProductID=$(ioreg -l | grep "DisplayProductID" | awk '{print $8}')
     EDID=$(ioreg -l | grep "IODisplayEDID" | awk '{print $8}' | sed -e 's/.$//' -e 's/^.//')
@@ -45,15 +42,11 @@ EEF
     fi
 }
 
-# 选择ICON
 function choose_icon()
 {
-    #
     mkdir $thisDir/tmp/
-    curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/Icons.plist -o $thisDir/tmp/Icons.plist
-    # curl -fsSL http://127.0.0.1:8080/Icons.plist -o $thisDir/tmp/Icons.plist
+    curl -fsSL https://raw.githubusercontent.com/athlonreg/one-key-hidpi/master/Icons.plist -o $thisDir/tmp/Icons.plist
 
-#
 cat << EOF
 ----------------------------------------
 |********** 选择要显示的ICON ***********|
@@ -100,14 +93,12 @@ fi
 
 }
 
-# 主函数
 function main()
 {
     sudo mkdir -p $thisDir/tmp/DisplayVendorID-$Vid
     dpiFile=$thisDir/tmp/DisplayVendorID-$Vid/DisplayProductID-$Pid
     sudo chmod -R 777 $thisDir/tmp/
 
-# 
 cat > "$dpiFile" <<-\HIDPI
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -168,7 +159,6 @@ HIDPI
     sed -i '' "s/PID/$ProductID/g" $dpiFile
 }
 
-# 擦屁股
 function end()
 {
     sudo cp -r $thisDir/tmp/* $thatDir/
@@ -177,7 +167,6 @@ function end()
     echo "首次重启开机logo会变得巨大，之后就不会了"
 }
 
-# 开
 function enable_hidpi()
 {
     choose_icon
@@ -187,23 +176,11 @@ function enable_hidpi()
     end
 }
 
-# 开挂
-function enable_hidpi_with_patch()
-{
-    choose_icon
-    main
-    sed -i '' "s:EDid:${EDid}:g" $dpiFile
-    end
-}
-
-# 关
 function disable()
 {
     sudo rm -rf $thatDir/DisplayVendorID-$Vid 
     sudo rm -rf $thatDir/Icons.plist
-
     sudo cp -r $thatDir/backup/* $thatDir/
-
     sudo rm -rf $thatDir/backup
     echo "已关闭，重启生效"
 }
@@ -211,21 +188,17 @@ function disable()
 function start()
 {
     init
-# 
 cat << EOF
 
 (1) 开启HIDPI
-(2) 开启HIDPI（同时注入花屏补丁）
-(3) 关闭HIDPI
+(2) 关闭HIDPI
 
 EOF
 read -p "输入你的选择[1~3]: " input
 case $input in
     1) enable_hidpi
 ;;
-2) enable_hidpi_with_patch
-;;
-3) disable
+2) disable
 ;;
 *) echo "输入错误，拜拜";
 exit 0
