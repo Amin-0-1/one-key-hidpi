@@ -81,14 +81,14 @@ exit 0
 esac 
 
 if [[ $Picon ]]; then
-    sed -i '' "s/VID/$Vid/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/PID/$Pid/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/RPX/${RP[0]}/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/RPY/${RP[1]}/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/RPW/${RP[2]}/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/RPH/${RP[3]}/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/PICON/$Picon/g" $thisDir/tmp/Icons.plist
-    sed -i '' "s/DICON/$DICON/g" $thisDir/tmp/Icons.plist
+    sed -i "s/VID/$Vid/g" $thisDir/tmp/Icons.plist
+    sed -i "s/PID/$Pid/g" $thisDir/tmp/Icons.plist
+    sed -i "s/RPX/${RP[0]}/g" $thisDir/tmp/Icons.plist
+    sed -i "s/RPY/${RP[1]}/g" $thisDir/tmp/Icons.plist
+    sed -i "s/RPW/${RP[2]}/g" $thisDir/tmp/Icons.plist
+    sed -i "s/RPH/${RP[3]}/g" $thisDir/tmp/Icons.plist
+    sed -i "s/PICON/$Picon/g" $thisDir/tmp/Icons.plist
+    sed -i "s/DICON/$DICON/g" $thisDir/tmp/Icons.plist
 fi
 
 }
@@ -155,8 +155,8 @@ cat > "$dpiFile" <<-\HIDPI
 </plist>
 HIDPI
 
-    sed -i '' "s/VID/$VendorID/g" $dpiFile
-    sed -i '' "s/PID/$ProductID/g" $dpiFile
+    sed -i "s/VID/$VendorID/g" $dpiFile
+    sed -i "s/PID/$ProductID/g" $dpiFile
 }
 
 function end()
@@ -171,8 +171,8 @@ function enable_hidpi()
 {
     choose_icon
     main
-    sed -i "" "/.*IODisplayEDID/d" $dpiFile
-    sed -i "" "/.*EDid/d" $dpiFile
+    sed -i "/.*IODisplayEDID/d" $dpiFile
+    sed -i "/.*EDid/d" $dpiFile
     end
 }
 
