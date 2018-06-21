@@ -20,7 +20,7 @@
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/athlonreg/one-key-hidpi/master/hidpi.sh)"
 ```
 
-![15255304050717](http://ovefvi4g3.bkt.clouddn.com/15255304050717.jpg)
+![](https://raw.githubusercontent.com/athlonreg/one-key-hidpi/master/docs/example.png)
 
 ### 恢复
 
@@ -35,3 +35,5 @@ $ Vid=$(echo "obase=16;$VendorID" | bc | tr 'A-Z' 'a-z')
 $ rm -rf ./DisplayVendorID-$Vid
 $ cp -r ./backup/* ./
 ```
+
+

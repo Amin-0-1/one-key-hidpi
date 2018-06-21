@@ -194,7 +194,7 @@ cat << EOF
 (2) 关闭HIDPI
 
 EOF
-read -p "输入你的选择[1~3]: " input
+read -p "输入你的选择[1~2]: " input
 case $input in
     1) enable_hidpi
 ;;
