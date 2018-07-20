@@ -109,7 +109,7 @@ cat > "$dpiFile" <<-\HIDPI
         <key>DisplayBluePointX</key>
         <real>0.155</real>
         <key>DisplayBluePointY</key>
-        <real>0.10000000000000001</real>
+        <real>0.07</real>
         <key>DisplayGreenGamma</key>
         <real>2</real>
         <key>DisplayGreenPointX</key>
