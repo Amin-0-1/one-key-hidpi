@@ -207,7 +207,7 @@ function disable()
 function custom_res()
 {
     echo "输入要开启的分辨率，以空格分隔，例如：1366x768 1440x810 1600x900 1920x1080"
-    read -p res
+    read -p "" res
     create_res $res
 }
 
